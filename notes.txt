@@ -1,0 +1,16 @@
+Bussiness directory
+
+collections
+- Cities, locations
+    City name
+    City Address
+    City Id
+- bussiness categories
+    category name
+    business Id
+- business 
+    name
+    Address
+    business Id
+    category Id
+    City Id
