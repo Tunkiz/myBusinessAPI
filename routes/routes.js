@@ -2,7 +2,7 @@
 import express from "express";
 
 import {getCategories, updateCategory, saveCategory, getCategory, deleteCategory} from "../controllers/categoryController.js";
-import {getBusinesses, updateBusiness, saveBusiness, getBusiness, deleteBusiness} from "../controllers/businessController.js";
+import {getBusinesses, updateBusiness, saveBusiness, getBusiness, deleteBusiness, businessDetails} from "../controllers/businessController.js";
 import {getCities, updateCity, saveCity, getCity, deleteCity} from "../controllers/cityControllers.js";
 //express import
 const route = express.Router();
@@ -20,7 +20,8 @@ route.get('/businesses/', getBusinesses);
 route.get('/business/:id', getBusiness);
 route.post('/business/', saveBusiness);
 route.patch('/business/:id', updateBusiness); 
-route.delete('/business/:id', deleteBusiness);   
+route.delete('/business/:id', deleteBusiness);
+route.get('/businessDetails/', businessDetails);   
 
 // Cities
 route.get('/cities/', getCities);

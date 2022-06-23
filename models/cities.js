@@ -7,8 +7,8 @@ const City  = mongoose.Schema({
         type: String,
         required: true,
     },
-    city_Address: {
-        type: String,
+    city_id: {
+        type: Number,
         required: true,
     }
 });

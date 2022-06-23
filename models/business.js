@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 // create a scheme
 const Business = mongoose.Schema({
-    name: {
+    business_name: {
         type: String,
         required: true,
     },
@@ -11,15 +11,15 @@ const Business = mongoose.Schema({
         type: String,
         required: true,
     },
-    busissId: {
+    // business_id: {
+    //     type: Number,
+    //     required: true,
+    // },
+    category_id: {
         type: Number,
         required: true,
     },
-    categoryId: {
-        type: Number,
-        required: true,
-    },
-    cityId: {
+    city_id: {
         type: Number,
         required: true,
     }

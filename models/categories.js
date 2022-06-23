@@ -8,7 +8,7 @@ const Category = mongoose.Schema(
             type: String,
             required: true,
         },
-        business_Id:{
+        category_id:{
             type: Number,
             required: true,
         }

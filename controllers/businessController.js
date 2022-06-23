@@ -74,3 +74,47 @@ export const deleteBusiness = async(req, res)=>{
         });
     }
 };
+// getting full details of business
+export const businessDetails = async(req, res)=>{
+        Business.aggregate([
+            {
+                $lookup: {
+                    from: "cities",
+                    localField: "city_id",
+                    foreignField: "city_id",
+                    as: "City_info",
+                },
+            },
+            {
+                $unwind: "$City_info",
+            },
+            {
+                $lookup: {
+                    from: "categories",
+                    localField: "category_id",
+                    foreignField: "category_id",
+                    as: "Category_info",
+                },
+            },
+            {
+                $unwind: "$Category_info",
+            }, 
+            {
+                $project:{
+                    business_name: 1,
+                    address: 1,
+                    city_name: "$City_info.city_name",
+                    category_name: "$Category_info.category_name",
+                },
+            }
+        ]).then((result)=>{
+            console.log(result);
+            res.status(200).json({result});
+        })
+        .catch((error) =>{
+            res.status(500).json({
+                message : error.message
+            });
+        });
+    
+}
